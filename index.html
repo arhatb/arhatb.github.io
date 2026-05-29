@@ -3,11 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Arhat Basut — Bilgisayar Mühendisliği Öğrencisi</title>
+  <title>ARHAT — Full-Stack Developer</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text x='0' y='14'>ϟ</text></svg>">
+  <meta name="google-site-verification" content="76ShYUlvTJOOp3EtkuXZSYU2Upon7ZStrmw-oDYyEUQ" />
+  
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,600;1,400&family=Clash+Display:wght@400;500;600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
   <style>
     :root {
@@ -30,7 +34,6 @@
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
 
     body {
@@ -40,8 +43,6 @@
       min-height: 100vh;
       overflow-x: hidden;
     }
-
-    /* ---- NOISE OVERLAY ---- */
     body::before {
       content: '';
       position: fixed;
@@ -68,13 +69,14 @@
 
     .nav-logo {
       font-family: var(--mono);
-      font-size: 13px;
-      font-weight: 600;
+      font-size: 18px;
+      font-weight: 700;
       letter-spacing: 0.1em;
       color: var(--text);
       display: flex;
       align-items: center;
       gap: 8px;
+      text-decoration: none;
     }
 
     .nav-logo .dot {
@@ -182,21 +184,6 @@
       object-position: center 20%;
     }
 
-    .photo-placeholder {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .photo-label {
-      font-family: var(--mono);
-      font-size: 9px;
-      color: var(--text3);
-      letter-spacing: 0.1em;
-      text-align: center;
-    }
-
     .hero-photo-badge {
       display: flex;
       align-items: center;
@@ -206,6 +193,8 @@
       border: 1px solid var(--border2);
       border-radius: 100px;
       color: var(--text2);
+      font-family: var(--mono);
+      font-size: 11px;
     }
 
     .hero::after {
@@ -239,31 +228,27 @@
     }
 
     .hero h1 {
-      font-size: clamp(2.8rem, 5.5vw, 5rem);
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
       font-weight: 600;
-      line-height: 1.05;
+      line-height: 1.1;
       letter-spacing: -0.03em;
       margin-bottom: 1.5rem;
       opacity: 0;
       animation: fadeUp 0.7s 0.2s forwards;
-      white-space: nowrap;
     }
 
-    .hero h1 .name { color: var(--text); }
-    .hero h1 .dim { color: var(--text3); font-weight: 300; }
+    .hero h1 .highlight { color: var(--accent2); }
 
     .hero-desc {
       font-size: 16px;
       line-height: 1.8;
       color: var(--text2);
-      max-width: 520px;
+      max-width: 560px;
       margin-bottom: 2.5rem;
       font-weight: 300;
       opacity: 0;
       animation: fadeUp 0.7s 0.35s forwards;
     }
-
-    .hero-desc strong { color: var(--text); font-weight: 500; }
 
     .hero-chips {
       display: flex;
@@ -321,30 +306,6 @@
       background: var(--accent2);
       transform: translateY(-1px);
       box-shadow: 0 4px 32px var(--accent-glow);
-    }
-
-    .btn-secondary {
-      font-family: var(--mono);
-      font-size: 12px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 13px 28px;
-      background: transparent;
-      color: var(--text2);
-      border: 1px solid var(--border2);
-      border-radius: 6px;
-      cursor: pointer;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      transition: all 0.2s;
-    }
-
-    .btn-secondary:hover {
-      color: var(--text);
-      border-color: var(--border2);
-      background: var(--bg2);
     }
 
     .hero-scroll {
@@ -405,34 +366,94 @@
       color: var(--text2);
     }
 
-    .section-line {
-      flex: 1;
-      height: 1px;
-      background: var(--border);
-    }
+    .section-line { flex: 1; height: 1px; background: var(--border); }
 
-    /* ---- ABOUT ---- */
-    .about-grid {
+    /* ---- PROJECTS ---- */
+    .view-more-btn {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--accent2);
+      text-decoration: none;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    .view-more-btn:hover { color: #fff; }
+
+    .projects-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: start;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
     }
 
-    .about-text {
-      font-size: 15px;
-      line-height: 1.9;
+    .project-card {
+      background: var(--bg2);
+      padding: 1.75rem;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      transition: all 0.2s;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .project-card:hover {
+      background: var(--bg3);
+      border-color: var(--border2);
+      transform: translateY(-2px);
+    }
+
+    .project-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .project-desc {
+      font-size: 13px;
+      line-height: 1.7;
       color: var(--text2);
       font-weight: 300;
+      margin-bottom: 1.25rem;
     }
 
-    .about-text strong { color: var(--text); font-weight: 500; }
+    .project-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 1.5rem;
+    }
 
-    .about-text p + p { margin-top: 1rem; }
+    .stack-tag {
+      font-family: var(--mono);
+      font-size: 10px;
+      padding: 3px 8px;
+      border-radius: 4px;
+      background: var(--accent-dim);
+      border: 1px solid rgba(123,110,246,0.15);
+      color: var(--accent2);
+    }
 
-    .about-stats {
+    .btn-project-view {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--green);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      margin-top: auto;
+    }
+    .btn-project-view:hover { text-decoration: underline; }
+
+    .hidden-project { display: none !important; }
+
+    /* ---- SKILLS ---- */
+    .skills-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 1px;
       background: var(--border);
       border: 1px solid var(--border);
@@ -440,31 +461,59 @@
       overflow: hidden;
     }
 
-    .stat-box {
+    .skill-group {
       background: var(--bg2);
       padding: 1.5rem;
     }
 
-    .stat-box .num {
-      font-size: 2rem;
-      font-weight: 600;
-      color: var(--text);
-      line-height: 1;
-      margin-bottom: 4px;
-    }
-
-    .stat-box .label {
+    .skill-group-label {
       font-family: var(--mono);
       font-size: 10px;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--text3);
+      margin-bottom: 1rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border);
     }
 
-    .stat-box.accent .num { color: var(--accent2); }
-    .stat-box.green .num { color: var(--green); }
+    .skill-items {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
 
-    /* ---- TIMELINE ---- */
+    .skill-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .skill-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .skill-dot.learning { background: #fbbf24; }
+    .skill-dot.strong { background: var(--green); }
+
+    .skill-name {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .skill-level {
+      font-family: var(--mono);
+      font-size: 9px;
+      color: var(--text3);
+      letter-spacing: 0.1em;
+      margin-left: auto;
+    }
+
+   /* ---- TIMELINE ---- */
     .timeline {
       position: relative;
       padding-left: 2rem;
@@ -560,159 +609,11 @@
       letter-spacing: 0.06em;
     }
 
-    /* ---- PROJECTS ---- */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      overflow: hidden;
-    }
-
-    .project-card {
-      background: var(--bg2);
-      padding: 1.75rem;
-      transition: background 0.2s;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .project-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, var(--accent), var(--accent2));
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-
-    .project-card:hover { background: var(--bg3); }
-    .project-card:hover::before { opacity: 1; }
-
-    .project-badge {
-      font-family: var(--mono);
-      font-size: 10px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 3px 9px;
-      border-radius: 4px;
-      background: var(--green-dim);
-      color: var(--green);
-      border: 1px solid rgba(52,211,153,0.2);
-      display: inline-block;
-      margin-bottom: 1rem;
-    }
-
-    .project-badge.wip {
-      background: rgba(251,191,36,0.1);
-      color: #fbbf24;
-      border-color: rgba(251,191,36,0.2);
-    }
-
-    .project-title {
-      font-size: 17px;
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 8px;
-    }
-
-    .project-desc {
-      font-size: 13px;
-      line-height: 1.7;
-      color: var(--text2);
-      font-weight: 300;
-      margin-bottom: 1.25rem;
-    }
-
-    .project-stack {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
-
-    .stack-tag {
-      font-family: var(--mono);
-      font-size: 10px;
-      padding: 3px 8px;
-      border-radius: 4px;
-      background: var(--accent-dim);
-      border: 1px solid rgba(123,110,246,0.15);
-      color: var(--accent2);
-      letter-spacing: 0.06em;
-    }
-
-    /* ---- SKILLS ---- */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      overflow: hidden;
-    }
-
-    .skill-group {
-      background: var(--bg2);
-      padding: 1.5rem;
-    }
-
-    .skill-group-label {
-      font-family: var(--mono);
-      font-size: 10px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--text3);
-      margin-bottom: 1rem;
-      padding-bottom: 0.75rem;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .skill-items {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .skill-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .skill-dot {
-      width: 6px; height: 6px;
-      border-radius: 50%;
-      background: var(--accent);
-      flex-shrink: 0;
-    }
-
-    .skill-dot.learning { background: #fbbf24; }
-    .skill-dot.strong { background: var(--green); }
-
-    .skill-name {
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--text);
-    }
-
-    .skill-level {
-      font-family: var(--mono);
-      font-size: 9px;
-      color: var(--text3);
-      letter-spacing: 0.1em;
-      margin-left: auto;
-    }
-
     /* ---- CONTACT ---- */
     .contact-inner {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 4rem;
-      align-items: start;
     }
 
     .contact-heading {
@@ -729,20 +630,6 @@
       color: var(--text2);
       font-weight: 300;
       margin-bottom: 2rem;
-    }
-
-    .contact-note {
-      font-family: var(--mono);
-      font-size: 11px;
-      color: var(--text3);
-      letter-spacing: 0.08em;
-      padding: 10px 14px;
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
     }
 
     .contact-links {
@@ -802,134 +689,6 @@
 
     .contact-link:hover .arrow { color: var(--text); }
 
-    /* ---- CERTIFICATES ---- */
-    .cert-list {
-      display: flex;
-      flex-direction: column;
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      overflow: hidden;
-    }
-
-    .cert-card {
-      background: var(--bg2);
-      padding: 1.25rem 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 1.25rem;
-      transition: background 0.2s;
-    }
-
-    .cert-card:hover { background: var(--bg3); }
-
-    .cert-icon {
-      width: 44px; height: 44px;
-      border-radius: 10px;
-      background: rgba(123,110,246,0.1);
-      border: 1px solid rgba(123,110,246,0.2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 20px;
-      color: var(--accent2);
-      flex-shrink: 0;
-    }
-
-    .cert-info { flex: 1; }
-
-    .cert-title {
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 3px;
-    }
-
-    .cert-issuer {
-      font-family: var(--mono);
-      font-size: 11px;
-      color: var(--accent2);
-      letter-spacing: 0.06em;
-      margin-bottom: 2px;
-    }
-
-    .cert-date {
-      font-family: var(--mono);
-      font-size: 11px;
-      color: var(--text3);
-      letter-spacing: 0.06em;
-    }
-
-    .cert-badge {
-      font-family: var(--mono);
-      font-size: 10px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 4px 10px;
-      border-radius: 100px;
-      background: var(--green-dim);
-      color: var(--green);
-      border: 1px solid rgba(52,211,153,0.2);
-      flex-shrink: 0;
-    }
-
-    /* ---- HOBBIES ---- */
-    .hobbies-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      overflow: hidden;
-    }
-
-    .hobby-card {
-      background: var(--bg2);
-      padding: 1.5rem 1.25rem;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 8px;
-      transition: background 0.2s;
-    }
-
-    .hobby-card:hover { background: var(--bg3); }
-
-    .hobby-icon {
-      width: 40px; height: 40px;
-      border-radius: 10px;
-      background: var(--bg3);
-      border: 1px solid var(--border2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
-      color: var(--accent2);
-      margin-bottom: 4px;
-      transition: all 0.2s;
-    }
-
-    .hobby-card:hover .hobby-icon {
-      background: var(--accent-dim);
-      border-color: rgba(123,110,246,0.25);
-    }
-
-    .hobby-name {
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--text);
-    }
-
-    .hobby-desc {
-      font-size: 12px;
-      line-height: 1.5;
-      color: var(--text3);
-      font-weight: 300;
-    }
-
-    /* ---- FOOTER ---- */
     footer {
       border-top: 1px solid var(--border);
       padding: 1.5rem 2.5rem;
@@ -938,252 +697,225 @@
       align-items: center;
     }
 
-    .footer-copy {
-      font-family: var(--mono);
-      font-size: 11px;
-      color: var(--text3);
-      letter-spacing: 0.08em;
-    }
-
-    .footer-back {
-      font-family: var(--mono);
-      font-size: 11px;
-      color: var(--text3);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      background: none;
-      border: none;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      transition: color 0.2s;
-    }
-
-    .footer-back:hover { color: var(--text); }
-
-    /* ---- ANIMATIONS ---- */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(16px); }
       to { opacity: 1; transform: translateY(0); }
     }
-
-    /* ---- RESPONSIVE ---- */
-    @media (max-width: 768px) {
-      nav { padding: 1rem 1.25rem; }
-      .nav-links { gap: 1rem; }
-      section { padding: 3.5rem 1.25rem; }
-      .hero { padding: 7rem 1.25rem 4rem; }
-      .hero-inner { grid-template-columns: 1fr; gap: 2rem; }
-      .hero h1 { font-size: 2.8rem; white-space: normal; }
-      .hero-photo-wrap { order: -1; }
-      .hero-photo { width: 150px; height: 150px; }
-      .about-grid, .contact-inner { grid-template-columns: 1fr; gap: 2rem; }
-      .contact-heading { font-size: 2rem; }
-    }
-  </style>
+ </style>
 </head>
 <body>
 
-  <!-- NAV -->
   <nav>
-    <div class="nav-logo">
-      <span class="dot"></span>
-      ARHAT.DEV
-    </div>
+    <a href="#home" class="nav-logo">
+      <div class="dot"></div>ϟ
+    </a>
+
     <ul class="nav-links">
-      <li><a href="#about" data-tr="Hakkımda" data-en="About">Hakkımda</a></li>
-      <li><a href="#timeline" data-tr="Yolculuk" data-en="Journey">Yolculuk</a></li>
-      <li><a href="#projects" data-tr="Projeler" data-en="Projects">Projeler</a></li>
-      <li><a href="#skills" data-tr="Beceriler" data-en="Skills">Beceriler</a></li>
-      <li><a href="#certificates" data-tr="Sertifikalar" data-en="Certs">Sertifikalar</a></li>
-      <li><a href="#hobbies" data-tr="Hobiler" data-en="Hobbies">Hobiler</a></li>
-      <li><a href="#contact" data-tr="İletişim" data-en="Contact">İletişim</a></li>
+      <li><a href="#home" data-tr="#anasayfa" data-en="#home">#anasayfa</a></li>
+      <li><a href="#projects" data-tr="#projeler" data-en="#projects">#projeler</a></li>
+      <li><a href="#skills" data-tr="#beceriler" data-en="#skills">#beceriler</a></li>
+      <li><a href="#timeline" data-tr="#yolculuk" data-en="#journey">#yolculuk</a></li>
+      <li><a href="#contact" data-tr="#iletisim" data-en="#contact">#iletisim</a></li>
     </ul>
+
     <button class="lang-toggle" id="langBtn">EN</button>
   </nav>
 
-  <!-- HERO -->
-  <section class="hero" id="home">
+  <header id="home" class="hero">
     <div class="hero-inner">
       <div class="hero-content">
-        <div class="hero-eyebrow" data-tr="Bilgisayar Mühendisliği Öğrencisi · Türkiye" data-en="Computer Engineering Student · Turkey">
-          Bilgisayar Mühendisliği Öğrencisi · Türkiye
+
+        <div class="hero-eyebrow"
+             data-tr="Full-Stack Web Geliştirici"
+             data-en="Full-Stack Web Developer">
+          Full-Stack Web Geliştirici
         </div>
-        <h1>
-          <span class="name">Arhat Basut.</span>
+
+        <h1 data-tr="Merhaba! Ben <span class='highlight'>ARHAT</span>. Full-Stack <span class='highlight'>Web Geliştiricisiyim</span>"
+            data-en="Hello! I'm <span class='highlight'>ARHAT</span>. I'm a Full-Stack <span class='highlight'>Web Developer</span>">
+          Merhaba! Ben <span class="highlight">ARHAT</span>. Full-Stack <span class="highlight">Web Geliştiricisiyim</span>
         </h1>
-        <p class="hero-desc" data-tr="Yazılım geliştirme ve siber güvenlik alanlarına tutkuyla ilgi duyan bir mühendislik öğrencisiyim. <strong>Öğrenmek, üretmek ve paylaşmak</strong> benim için bir yaşam biçimi." data-en="An engineering student with a passion for software development and cybersecurity. <strong>Learning, building, and sharing</strong> is my way of life.">
-          Yazılım geliştirme ve siber güvenlik alanlarına tutkuyla ilgi duyan bir mühendislik öğrencisiyim. <strong>Öğrenmek, üretmek ve paylaşmak</strong> benim için bir yaşam biçimi.
+
+        <p class="hero-desc" 
+           data-tr="Merhaba, ben Arhat. Harran Üniversitesi Bilgisayar Mühendisliği 1. sınıf öğrencisiyim. Yazılım geliştirme ve siber güvenliğe ilgi duyan biriyim. Şu anda Java programlama dili ve siber güvenlik alanlarında eğitimler almaktayım. Ayrıca IEEE ve Genç STEM gibi öğrenci kulüplerinde aktif olarak görev yaparak hem teknik hem de sosyal anlamda kendimi geliştirmeye devam ediyorum."
+           data-en="Hi, I'm Arhat. I'm a first-year Computer Engineering student at Harran University, passionate about software development and cybersecurity. Currently, I'm training in Java programming and cyber security fields. I also actively take roles in student clubs like IEEE and Genç STEM to keep improving myself both technically and socially.">
+          Merhaba, ben Arhat. Harran Üniversitesi Bilgisayar Mühendisliği 1. sınıf öğrencisiyim. Yazılım geliştirme ve siber güvenliğe ilgi duyan biriyim. Şu anda Java programlama dili ve siber güvenlik alanlarında eğitimler almaktayım. Ayrıca IEEE ve Genç STEM gibi öğrenci kulüplerinde aktif olarak görev yaparak hem teknik hem de sosyal anlamda kendimi geliştirmeye devam ediyorum.
         </p>
+
         <div class="hero-chips">
-          <span class="chip active" data-tr="Aktif Öğreniyor" data-en="Actively Learning">● Aktif Öğreniyor</span>
-          <span class="chip" data-tr="Açık Kaynağa Katkı" data-en="Open Source">Açık Kaynağa Katkı</span>
+          <span class="chip active" data-tr="● Aktif Öğreniyor" data-en="● Active Learner">● Aktif Öğreniyor</span>
+          <span class="chip" data-tr="Açık Kaynağa Katkı" data-en="Open Source Contribution">Açık Kaynağa Katkı</span>
           <span class="chip" data-tr="Siber Güvenlik" data-en="Cybersecurity">Siber Güvenlik</span>
-          <span class="chip" data-tr="Genç STEM" data-en="Young STEM">Genç STEM Kulübü</span>
+          <span class="chip" data-tr="Genç STEM Kulübü" data-en="Young STEM Club">Genç STEM Kulübü</span>
         </div>
+
         <div class="hero-ctas">
-          <a href="#timeline" class="btn-primary" data-tr="Yolculuğumu Gör" data-en="See My Journey">
+          <a href="#timeline" class="btn-primary"
+             data-tr="<i class='ti ti-arrow-down'></i> <span>Yolculuğumu Gör</span>" data-en="<i class='ti ti-arrow-down'></i> <span>See My Journey</span>">
             <i class="ti ti-arrow-down"></i>
             <span>Yolculuğumu Gör</span>
           </a>
-          <a href="#contact" class="btn-secondary" data-tr="İletişime Geç" data-en="Get in Touch">
-            <span>İletişime Geç</span>
+
+          <a href="#contact" class="btn-primary"
+             data-tr="<i class='ti ti-arrow-right'></i> <span>İletişime Geç</span>" data-en="<i class='ti ti-arrow-right'></i> <span>Contact Me</span>">
             <i class="ti ti-arrow-right"></i>
+            <span>İletişime Geç</span>
           </a>
         </div>
+
       </div>
+
       <div class="hero-photo-wrap">
         <div class="hero-photo-ring">
-          <div class="hero-photo" id="heroPhoto">
-<img src="photo.jpg" alt="Arhat Basut" />
+          <div class="hero-photo">
+            <img src="photo.jpg" alt="ARHAT profile photo">
           </div>
         </div>
+
         <div class="hero-photo-badge">
-          <span class="dot" style="width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 6px var(--green);flex-shrink:0;"></span>
-          <span style="font-family:var(--mono);font-size:10px;letter-spacing:0.1em;" data-tr="Aktif · Türkiye" data-en="Active · Turkey">Aktif · Türkiye</span>
-        </div>
-      </div>
-    </div>
-    <div class="hero-scroll" data-tr="Aşağı Kaydır" data-en="Scroll Down">Aşağı Kaydır</div>
-  </section>
-
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="section-header">
-      <span class="section-num">01</span>
-      <span class="section-title" data-tr="Hakkımda" data-en="About">Hakkımda</span>
-      <div class="section-line"></div>
-    </div>
-    <div class="about-grid">
-      <div>
-        <p class="about-text" data-tr="<strong>Merhaba!</strong> Ben Arhat, Türkiye'de bilgisayar mühendisliği okuyan, yazılım geliştirme ve siber güvenliğe tutku duyan bir öğrenciyim. Teknolojinin gücünü gerçek hayattaki problemlere uygulamak, yeni şeyler keşfetmek ve öğrendiklerimi başkalarıyla paylaşmak benim için çok değerli." data-en="<strong>Hello!</strong> I'm Arhat, a computer engineering student in Turkey with a passion for software development and cybersecurity. Applying the power of technology to real-world problems, discovering new things, and sharing what I learn with others is what drives me.">
-          <strong>Merhaba!</strong> Ben Arhat, Türkiye'de bilgisayar mühendisliği okuyan, yazılım geliştirme ve siber güvenliğe tutku duyan bir öğrenciyim. Teknolojinin gücünü gerçek hayattaki problemlere uygulamak, yeni şeyler keşfetmek ve öğrendiklerimi başkalarıyla paylaşmak benim için çok değerli.
-        </p>
-        <br>
-        <p class="about-text" data-tr="Şu anda <strong>JavaScript</strong> öğrenmeye devam ederken aynı zamanda siber güvenlik eğitimleri alıyorum. Genç STEM Kulübü'nde sosyal medya temsilcisi olarak topluluğa katkı sağlıyorum. Öğrenmek hiç bitmez — bu benim motorum." data-en="Currently, I'm actively learning <strong>JavaScript</strong> while also studying cybersecurity. As a social media representative at the Young STEM Club, I contribute to the community. Learning never stops — that's my engine.">
-          Şu anda <strong>JavaScript</strong> öğrenmeye devam ederken aynı zamanda siber güvenlik eğitimleri alıyorum. Genç STEM Kulübü'nde sosyal medya temsilcisi olarak topluluğa katkı sağlıyorum. Öğrenmek hiç bitmez — bu benim motorum.
-        </p>
-      </div>
-      <div class="about-stats">
-        <div class="stat-box">
-          <div class="num">1.</div>
-          <div class="label" data-tr="Sınıf" data-en="Year">Sınıf</div>
-        </div>
-        <div class="stat-box accent">
-          <div class="num">2+</div>
-          <div class="label" data-tr="Proje" data-en="Projects">Proje</div>
-        </div>
-        <div class="stat-box green">
-          <div class="num">4+</div>
-          <div class="label" data-tr="Teknoloji" data-en="Technologies">Teknoloji</div>
-        </div>
-        <div class="stat-box">
-          <div class="num">∞</div>
-          <div class="label" data-tr="Merak" data-en="Curiosity">Merak</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TIMELINE -->
-  <section id="timeline">
-    <div class="section-header">
-      <span class="section-num">02</span>
-      <span class="section-title" data-tr="Yolculuğum" data-en="My Journey">Yolculuğum</span>
-      <div class="section-line"></div>
-    </div>
-    <div class="timeline">
-
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <div class="tl-year">2025</div>
-        <div class="tl-title" data-tr="Bilgisayar Mühendisliği Lisans" data-en="Computer Engineering Undergraduate">Bilgisayar Mühendisliği Lisans</div>
-        <div class="tl-sub" data-tr="Eylül 2025 · Üniversite" data-en="September 2025 · University">Eylül 2025 · Üniversite</div>
-        <p class="tl-desc" data-tr="Bilgisayar mühendisliği lisans programına başladım. Teorik temeller ile kişisel proje geliştirmeyi dengeleyerek sürdürüyorum." data-en="I started my computer engineering undergraduate program. I balance theoretical foundations with personal project development.">
-          Bilgisayar mühendisliği lisans programına başladım. Teorik temeller ile kişisel proje geliştirmeyi dengeleyerek sürdürüyorum.
-        </p>
-        <div class="tl-tags">
-          <span class="tl-tag">Algoritmalar</span>
-          <span class="tl-tag">Veri Yapıları</span>
-          <span class="tl-tag">Matematik</span>
+          <i class="ti ti-map-pin" style="color:var(--green)"></i> Türkiye
         </div>
       </div>
 
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <div class="tl-year">2026 — Mayıs</div>
-        <div class="tl-title" data-tr="Genç STEM Kulübü · Sosyal Medya Temsilcisi" data-en="Young STEM Club · Social Media Representative">Genç STEM Kulübü · Sosyal Medya Temsilcisi</div>
-        <div class="tl-sub" data-tr="1 Mayıs 2026 · Öğrenci Kulübü" data-en="May 1, 2026 · Student Club">1 Mayıs 2026 · Öğrenci Kulübü</div>
-        <p class="tl-desc" data-tr="Genç STEM Kulübü'nde sosyal medya temsilcisi olarak göreve başladım. Topluluğun dijital varlığını güçlendirmek ve STEM içeriklerini yaymak için çalışıyorum." data-en="I started as a social media representative at the Young STEM Club. I work to strengthen the community's digital presence and spread STEM content.">
-          Genç STEM Kulübü'nde sosyal medya temsilcisi olarak göreve başladım. Topluluğun dijital varlığını güçlendirmek ve STEM içeriklerini yaymak için çalışıyorum.
-        </p>
-        <div class="tl-tags">
-          <span class="tl-tag">İçerik Üretimi</span>
-          <span class="tl-tag">Topluluk</span>
-          <span class="tl-tag">STEM</span>
-        </div>
-      </div>
-
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <div class="tl-year">2026 — Devam Ediyor</div>
-        <div class="tl-title" data-tr="Deprem Projesi · TEKNOFEST" data-en="Earthquake Project · TEKNOFEST">Deprem Projesi · TEKNOFEST</div>
-        <div class="tl-sub" data-tr="2026 · Ekip Projesi" data-en="2026 · Team Project">2026 · Ekip Projesi</div>
-        <p class="tl-desc" data-tr="Ekibimle birlikte TEKNOFEST için bir deprem projesi geliştiriyoruz. Proje henüz taslak aşamasında, büyük hedefler var." data-en="Together with my team, we are developing an earthquake project for TEKNOFEST. The project is still in the draft stage, with big goals ahead.">
-          Ekibimle birlikte TEKNOFEST için bir deprem projesi geliştiriyoruz. Proje henüz taslak aşamasında, büyük hedefler var.
-        </p>
-        <div class="tl-tags">
-          <span class="tl-tag">TEKNOFEST</span>
-          <span class="tl-tag">Takım Çalışması</span>
-          <span class="tl-tag">Ar-Ge</span>
-        </div>
+      <div class="hero-scroll"
+           data-tr="Aşağı Kaydır"
+           data-en="Scroll Down">
+        Aşağı Kaydır
       </div>
 
     </div>
-  </section>
+  </header>
 
-  <!-- PROJECTS -->
   <section id="projects">
     <div class="section-header">
-      <span class="section-num">03</span>
-      <span class="section-title" data-tr="Projeler" data-en="Projects">Projeler</span>
+      <span class="section-num">01//</span>
+      <h2 class="section-title" data-tr="#projelerim" data-en="#my_projects">#projelerim</h2>
       <div class="section-line"></div>
+      <a id="view-more-btn" class="view-more-btn" data-tr="Daha fazla →" data-en="View more →">Daha fazla →</a>
     </div>
+
     <div class="projects-grid">
       <div class="project-card">
-        <span class="project-badge wip" data-tr="Geliştiriliyor" data-en="In Development">Geliştiriliyor</span>
-        <div class="project-title" data-tr="İHA Projesi · TEKNOFEST" data-en="UAV Project · TEKNOFEST">İHA Projesi · TEKNOFEST</div>
-        <p class="project-desc" data-tr="TEKNOFEST Uluslararası İnsansız Hava Araçları Yarışması kapsamında ekibimle geliştirdiğimiz proje. Amaç; öğrencileri İHA teknolojilerine yönlendirmek, bilgi ve becerilerini sahaya taşımak. Yenilikçi fikirlerle ülkemizi İHA teknolojisinde bir buluşma noktası haline getirmeye katkı sağlamayı hedefliyoruz." data-en="A project developed with my team for the TEKNOFEST International Unmanned Aerial Vehicles Competition. Our goal is to contribute to making our country a meeting point in UAV technology with innovative ideas.">
-          TEKNOFEST Uluslararası İnsansız Hava Araçları Yarışması kapsamında ekibimle geliştirdiğimiz proje. Amaç; öğrencileri İHA teknolojilerine yönlendirmek, bilgi ve becerilerini sahaya taşımak. Yenilikçi fikirlerle ülkemizi İHA teknolojisinde bir buluşma noktası haline getirmeye katkı sağlamayı hedefliyoruz.
-        </p>
-        <div class="project-stack">
-          <span class="stack-tag">İHA / UAV</span>
-          <span class="stack-tag">Python</span>
-          <span class="stack-tag">TEKNOFEST</span>
-          <span class="stack-tag">Takım Projesi</span>
+        <div>
+          <h3 class="project-title" data-tr="IP & Tarayıcı Bilgi Uygulaması" data-en="IP & Browser Info App">IP & Tarayıcı Bilgi Uygulaması</h3>
+          <p class="project-desc" 
+             data-tr="Sahte komutlar kullanarak kullanıcının IP adresini, ülkesini, şehrini, internet servis sağlayıcısını, sistem saatini ve tarayıcı bilgilerini listeler."
+             data-en="Lists the user's IP address, country, city, ISP, system time, and browser details using simulation commands.">
+            Sahte komutlar kullanarak kullanıcının IP adresini, ülkesini, şehrini, internet servis sağlayıcısını, sistem saatini ve tarayıcı bilgilerini listeler.
+          </p>
         </div>
+        <div class="project-stack">
+          <span class="stack-tag">#javascript</span>
+          <span class="stack-tag">#frontend</span>
+          <span class="stack-tag">#ip-lookup</span>
+        </div>
+        <a href="https://arhatb.github.io/HackDash/" target="_blank" class="btn-project-view" data-tr="Projeyi İncele <i class='ti ti-arrow-up-right'></i>" data-en="View Project <i class='ti ti-arrow-up-right'></i>">Projeyi İncele <i class="ti ti-arrow-up-right"></i></a>
       </div>
+
       <div class="project-card">
-        <span class="project-badge" style="background:rgba(123,110,246,0.1);color:var(--accent2);border-color:rgba(123,110,246,0.2);" data-tr="Yakında" data-en="Coming Soon">Yakında</span>
-        <div class="project-title" data-tr="Yeni Projeler Geliyor" data-en="More Projects Coming">Yeni Projeler Geliyor</div>
-        <p class="project-desc" data-tr="Siber güvenlik ve yazılım geliştirme alanlarında yeni projeler üzerinde çalışıyorum. Takipte kal!" data-en="I'm working on new projects in cybersecurity and software development. Stay tuned!">
-          Siber güvenlik ve yazılım geliştirme alanlarında yeni projeler üzerinde çalışıyorum. Takipte kal!
-        </p>
-        <div class="project-stack">
-          <span class="stack-tag">JavaScript</span>
-          <span class="stack-tag">Siber Güvenlik</span>
-          <span class="stack-tag">Linux</span>
+        <div>
+          <h3 class="project-title" data-tr="URL Kısaltıcı" data-en="URL Shortener">URL Kısaltıcı</h3>
+          <p class="project-desc" 
+             data-tr="Kendi URL kısaltıcınızı oluşturmanıza olanak tanıyan bir demo uygulama."
+             data-en="A demo web application that allows you to create your own custom URL shortener.">
+            Kendi URL kısaltıcınızı oluşturmanıza olanak tanıyan bir demo uygulama.
+          </p>
         </div>
+        <div class="project-stack">
+          <span class="stack-tag">#webdev</span>
+          <span class="stack-tag">#api</span>
+          <span class="stack-tag">#nodejs</span>
+        </div>
+        <a href="https://arhatb.github.io/LinkShortener/" target="_blank" class="btn-project-view" data-tr="Projeyi İncele <i class='ti ti-arrow-up-right'></i>" data-en="View Project <i class='ti ti-arrow-up-right'></i>">Projeyi İncele <i class="ti ti-arrow-up-right"></i></a>
+      </div>
+
+      <div class="project-card">
+        <div>
+          <h3 class="project-title" data-tr="Özel Biri İçin" data-en="For Someone Special">Özel Biri İçin</h3>
+          <p class="project-desc" 
+             data-tr="Sevdiklerinize gönderip onları mutlu edebileceğiniz özel bir web sitesi."
+             data-en="A highly customized, special website built to send to your loved ones to make them smile.">
+            Sevdiklerinize gönderip onları mutlu edebileceğiniz özel bir web sitesi.
+          </p>
+        </div>
+        <div class="project-stack">
+          <span class="stack-tag">#python</span>
+          <span class="stack-tag">#automated</span>
+          <span class="stack-tag">#bot</span>
+        </div>
+        <a href="https://arhatb.github.io/love/" target="_blank" class="btn-project-view" data-tr="Projeyi İncele <i class='ti ti-arrow-up-right'></i>" data-en="View Project <i class='ti ti-arrow-up-right'></i>">Projeyi İncele <i class="ti ti-arrow-up-right"></i></a>
+      </div>
+
+      <div class="project-card hidden-project">
+        <div>
+          <h3 class="project-title" data-tr="Kripto Analizi" data-en="Crypto Analysis">Kripto Analizi</h3>
+          <p class="project-desc" data-tr="Basit bir kripto para takip uygulaması." data-en="A lightweight and clean cryptocurrency tracking application.">
+            Basit bir kripto para takip uygulaması.
+          </p>
+        </div>
+        <div class="project-stack">
+          <span class="stack-tag">#javascript</span>
+          <span class="stack-tag">#frontend</span>
+          <span class="stack-tag">#crypto</span>
+        </div>
+        <a href="https://arhatb.github.io/kripto/" target="_blank" class="btn-project-view" data-tr="Projeyi İncele <i class='ti ti-arrow-up-right'></i>" data-en="View Project <i class='ti ti-arrow-up-right'></i>">Projeyi İncele <i class="ti ti-arrow-up-right"></i></a>
+      </div>
+
+      <div class="project-card hidden-project">
+        <div>
+          <h3 class="project-title">TryHackMe</h3>
+          <p class="project-desc" data-tr="Kullanıcıların komut yazabileceği minimal bir terminal arayüzü." data-en="A minimal interactive terminal web interface where users can type commands.">
+            Kullanıcıların komut yazabileceği minimal bir terminal arayüzü.
+          </p>
+        </div>
+        <div class="project-stack">
+          <span class="stack-tag">#cybersecurity</span>
+          <span class="stack-tag">#frontend</span>
+          <span class="stack-tag">#websecurity</span>
+        </div>
+        <a href="https://arhatb.github.io/TryHackMe/" target="_blank" class="btn-project-view" data-tr="Projeyi İncele <i class='ti ti-arrow-up-right'></i>" data-en="View Project <i class='ti ti-arrow-up-right'></i>">Projeyi İncele <i class="ti ti-arrow-up-right"></i></a>
+      </div>
+
+      <div class="project-card hidden-project">
+        <div>
+          <h3 class="project-title">StudyPal</h3>
+          <p class="project-desc" 
+             data-tr="Çalışma oturumlarını takip etmeye ve odaklanmayı artırmaya yardımcı olan minimal, web tabanlı kronometre ve zamanlayıcı uygulaması."
+             data-en="A minimal, web-based study timer and stopwatch application designed to track study sessions and boost focus.">
+            Çalışma oturumlarını takip etmeye ve odaklanmayı artırmaya yardımcı olan minimal, web tabanlı kronometre ve zamanlayıcı uygulaması.
+          </p>
+        </div>
+        <div class="project-stack">
+          <span class="stack-tag">#javascript</span>
+          <span class="stack-tag">#frontend</span>
+          <span class="stack-tag">#productivity</span>
+        </div>
+        <a href="https://arhatb.github.io/StudyPal/" target="_blank" class="btn-project-view" data-tr="Projeyi İncele <i class='ti ti-arrow-up-right'></i>" data-en="View Project <i class='ti ti-arrow-up-right'></i>">Projeyi İncele <i class="ti ti-arrow-up-right"></i></a>
+      </div>
+
+      <div class="project-card hidden-project">
+        <div>
+          <h3 class="project-title">JSLogin</h3>
+          <p class="project-desc" 
+             data-tr="İstemci tarafında çalışan, temel kimlik doğrulama mantığı sunan temiz ve güvenli bir JavaScript giriş arayüzü."
+             data-en="A clean and secure client-side JavaScript login interface showcasing fundamental authentication logic.">
+            İstemci tarafında çalışan, temel kimlik doğrulama mantığı sunan temiz ve güvenli bir JavaScript giriş arayüzü.
+          </p>
+        </div>
+        <div class="project-stack">
+          <span class="stack-tag">#javascript</span>
+          <span class="stack-tag">#frontend</span>
+          <span class="stack-tag">#auth</span>
+        </div>
+        <a href="https://arhatb.github.io/JsLogin/" target="_blank" class="btn-project-view" data-tr="Projeyi İncele <i class='ti ti-arrow-up-right'></i>" data-en="View Project <i class='ti ti-arrow-up-right'></i>">Projeyi İncele <i class="ti ti-arrow-up-right"></i></a>
       </div>
     </div>
   </section>
 
-  <!-- SKILLS -->
   <section id="skills">
     <div class="section-header">
-      <span class="section-num">04</span>
-      <span class="section-title" data-tr="Beceriler & Araçlar" data-en="Skills & Tools">Beceriler & Araçlar</span>
+      <span class="section-num">02//</span>
+      <span class="section-title" data-tr="#beceriler & araclar" data-en="#skills & tools">#beceriler & araclar</span>
       <div class="section-line"></div>
     </div>
     <div class="skills-grid">
@@ -1281,76 +1013,74 @@
     </div>
   </section>
 
-
-  <!-- CERTIFICATES -->
-  <section id="certificates">
+  <section id="timeline">
     <div class="section-header">
-      <span class="section-num">05</span>
-      <span class="section-title" data-tr="Sertifikalar" data-en="Certificates">Sertifikalar</span>
+      <span class="section-num">03//</span>
+      <span class="section-title" data-tr="#yolculugum" data-en="#my_journey">#yolculugum</span>
       <div class="section-line"></div>
     </div>
-    <div class="cert-list">
-      <div class="cert-card">
-        <div class="cert-icon"><i class="ti ti-certificate"></i></div>
-        <div class="cert-info">
-          <div class="cert-title" data-tr="Linux Bash Script Eğitimi" data-en="Linux Bash Script Training">Linux Bash Script Eğitimi</div>
-          <div class="cert-issuer">Techcareer.net</div>
-          <div class="cert-date" data-tr="Ekim 2025" data-en="October 2025">Ekim 2025</div>
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-year">2025</div>
+        <div class="tl-title" data-tr="Bilgisayar Mühendisliği Lisans" data-en="Computer Engineering Undergraduate">Bilgisayar Mühendisliği Lisans</div>
+        <div class="tl-sub" data-tr="Eylül 2025 · Üniversite" data-en="September 2025 · University">Eylül 2025 · Üniversite</div>
+        <p class="tl-desc" data-tr="Bilgisayar mühendisliği lisans programına başladım. Teorik temeller ile kişisel proje geliştirmeyi dengeleyerek sürdürüyorum." data-en="Began my Bachelor's degree in Computer Engineering. I actively balance learning core theoretical foundations with building personal projects.">
+          Bilgisayar mühendisliği lisans programına başladım. Teorik temeller ile kişisel proje geliştirmeyi dengeleyerek sürdürüyorum.
+        </p>
+        <div class="tl-tags">
+          <span class="tl-tag" data-tr="Algoritmalar" data-en="Algorithms">Algoritmalar</span>
+          <span class="tl-tag" data-tr="Veri Yapıları" data-en="Data Structures">Veri Yapıları</span>
+          <span class="tl-tag" data-tr="Matematik" data-en="Mathematics">Matematik</span>
         </div>
-        <div class="cert-badge" data-tr="Doğrulandı" data-en="Verified">Doğrulandı</div>
       </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-year">2026 — Mayıs</div>
+        <div class="tl-title" data-tr="Genç STEM Kulübü · Sosyal Medya Temsilcisi" data-en="Young STEM Club · Social Media Representative">Genç STEM Kulübü · Sosyal Medya Temsilcisi</div>
+        <div class="tl-sub" data-tr="1 Mayıs 2026 · Öğrenci Kulübü" data-en="May 1, 2026 · Student Club">1 Mayıs 2026 · Öğrenci Kulübü</div>
+        <p class="tl-desc" data-tr="Genç STEM Kulübü'nde sosyal medya temsilcisi olarak göreve başladım. Topluluğun dijital varlığını güçlendirmek ve STEM içeriklerini yaymak için çalışıyorum." data-en="Started as a Social Media Representative at the Young STEM Club. Working to strengthen the community's digital footprint and promote STEM awareness.">
+          Genç STEM Kulübü'nde sosyal medya temsilcisi olarak göreve başladım. Topluluğun dijital varlığını güçlendirmek ve STEM içeriklerini yaymak için çalışıyorum.
+        </p>
+        <div class="tl-tags">
+          <span class="tl-tag" data-tr="İçerik Üretimi" data-en="Content Creation">İçerik Üretimi</span>
+          <span class="tl-tag" data-tr="Topluluk" data-en="Community">Topluluk</span>
+          <span class="tl-tag">STEM</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-year">2026 — Devam Ediyor</div>
+        <div class="tl-title" data-tr="Deprem Projesi · TEKNOFEST" data-en="Earthquake Project · TEKNOFEST">Deprem Projesi · TEKNOFEST</div>
+        <div class="tl-sub" data-tr="2026 · Ekip Projesi" data-en="2026 · Team Project">2026 · Ekip Projesi</div>
+        <p class="tl-desc" data-tr="Ekibimle birlikte TEKNOFEST için bir deprem projesi geliştiriyoruz. Proje henüz taslak aşamasında, büyük hedefler var." data-en="Developing an earthquake emergency response project for TEKNOFEST alongside my team. Currently in the drafting phase with high objectives.">
+          Ekibimle birlikte TEKNOFEST için bir deprem projesi geliştiriyoruz. Proje henüz taslak aşamasında, büyük hedefler var.
+        </p>
+        <div class="tl-tags">
+          <span class="tl-tag">TEKNOFEST</span>
+          <span class="tl-tag" data-tr="Takım Çalışması" data-en="Teamwork">Takım Çalışması</span>
+          <span class="tl-tag" data-tr="Ar-Ge" data-en="R&D">Ar-Ge</span>
+        </div>
+      </div>
+
     </div>
   </section>
 
-  <!-- HOBBIES -->
-  <section id="hobbies">
-    <div class="section-header">
-      <span class="section-num">06</span>
-      <span class="section-title" data-tr="Hobiler" data-en="Hobbies">Hobiler</span>
-      <div class="section-line"></div>
-    </div>
-    <div class="hobbies-grid">
-      <div class="hobby-card">
-        <div class="hobby-icon"><i class="ti ti-music"></i></div>
-        <div class="hobby-name" data-tr="Müzik" data-en="Music">Müzik</div>
-        <div class="hobby-desc" data-tr="Müzik dinlemek ve keşfetmek" data-en="Listening and discovering music">Müzik dinlemek ve keşfetmek</div>
-      </div>
-      <div class="hobby-card">
-        <div class="hobby-icon"><i class="ti ti-chess"></i></div>
-        <div class="hobby-name" data-tr="Satranç" data-en="Chess">Satranç</div>
-        <div class="hobby-desc" data-tr="Strateji ve sabır oyunu" data-en="A game of strategy and patience">Strateji ve sabır oyunu</div>
-      </div>
-      <div class="hobby-card">
-        <div class="hobby-icon"><i class="ti ti-movie"></i></div>
-        <div class="hobby-name" data-tr="Film" data-en="Film">Film</div>
-        <div class="hobby-desc" data-tr="Sinema ve hikaye anlatımı" data-en="Cinema and storytelling">Sinema ve hikaye anlatımı</div>
-      </div>
-      <div class="hobby-card">
-        <div class="hobby-icon"><i class="ti ti-camera"></i></div>
-        <div class="hobby-name" data-tr="Fotoğrafçılık" data-en="Photography">Fotoğrafçılık</div>
-        <div class="hobby-desc" data-tr="Anı yakalamak, ışığı görmek" data-en="Capturing moments, seeing light">Anı yakalamak, ışığı görmek</div>
-      </div>
-      <div class="hobby-card">
-        <div class="hobby-icon"><i class="ti ti-video"></i></div>
-        <div class="hobby-name" data-tr="Sinematik Video" data-en="Cinematic Video">Sinematik Video</div>
-        <div class="hobby-desc" data-tr="Görsel hikaye anlatımı ve montaj" data-en="Visual storytelling and editing">Görsel hikaye anlatımı ve montaj</div>
-      </div>
-    </div>
-  </section>
-  <!-- CONTACT -->
   <section id="contact">
     <div class="section-header">
-      <span class="section-num">07</span>
-      <span class="section-title" data-tr="İletişim" data-en="Contact">İletişim</span>
+      <span class="section-num">04//</span>
+      <span class="section-title" data-tr="#iletisim" data-en="#contact">#iletisim</span>
       <div class="section-line"></div>
     </div>
     <div class="contact-inner">
       <div>
         <div class="contact-heading" data-tr="Birlikte bir şeyler<br>yapalım." data-en="Let's build<br>something together.">Birlikte bir şeyler<br>yapalım.</div>
-        <p class="contact-sub" data-tr="Yeni fırsatlara, iş birliklerine ve öğrenme deneyimlerine açığım. Aklında bir proje varsa veya sadece merhaba demek istiyorsan, yazmaktan çekinme!" data-en="I'm open to new opportunities, collaborations, and learning experiences. If you have a project in mind or just want to say hi, feel free to reach out!">
+        <p class="contact-sub" data-tr="Yeni fırsatlara, iş birliklerine ve öğrenme deneyimlerine açığım. Aklında bir proje varsa veya sadece merhaba demek istiyorsan, yazmaktan çekinme!" data-en="I'm always open to new opportunities, collaborations, and learning experiences. If you have a project idea or just want to say hello, feel free to reach out!">
           Yeni fırsatlara, iş birliklerine ve öğrenme deneyimlerine açığım. Aklında bir proje varsa veya sadece merhaba demek istiyorsan, yazmaktan çekinme!
         </p>
-
       </div>
       <div class="contact-links">
         <a href="https://github.com/arhatb" target="_blank" class="contact-link">
@@ -1381,13 +1111,8 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
-    <span class="footer-copy">Arhat Basut © 2026 — <span data-tr="Sevgi ve kodla yapıldı." data-en="Built with love and code.">Sevgi ve kodla yapıldı.</span></span>
-    <button class="footer-back" onclick="window.scrollTo({top:0,behavior:'smooth'})">
-      <i class="ti ti-arrow-up"></i>
-      <span data-tr="Başa Dön" data-en="Back to Top">Başa Dön</span>
-    </button>
+    <span class="footer-copy">ARHAT © 2026 — <span data-tr="Sevgi ve kodla yapıldı." data-en="Built with love and code.">Sevgi ve kodla yapıldı.</span></span>
   </footer>
 
   <script>
@@ -1399,11 +1124,7 @@
       document.querySelectorAll('[data-tr]').forEach(el => {
         const val = el.getAttribute('data-' + lang);
         if (!val) return;
-        if (el.innerHTML.includes('<') && val.includes('<')) {
-          el.innerHTML = val;
-        } else {
-          el.textContent = val;
-        }
+        el.innerHTML = val;
       });
       btn.textContent = lang === 'tr' ? 'EN' : 'TR';
       document.documentElement.lang = lang;
@@ -1426,6 +1147,15 @@
     document.querySelectorAll('.tl-item').forEach((el, i) => {
       el.style.transitionDelay = (i * 0.1) + 's';
       observer.observe(el);
+    });
+
+    // --- VIEW MORE PROJECTS TOGGLE ---
+    const viewMoreBtn = document.getElementById('view-more-btn');
+    viewMoreBtn.addEventListener('click', () => {
+      document.querySelectorAll('.project-card').forEach(card => {
+        card.classList.remove('hidden-project');
+      });
+      viewMoreBtn.style.display = 'none';
     });
   </script>
 </body>
