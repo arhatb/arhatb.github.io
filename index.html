@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,600;1,400&family=Clash+Display:wght@400;500;600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
+ 
   <style>
     :root {
       --bg: #0a0a0f;
@@ -32,10 +32,10 @@
       --mono: 'IBM Plex Mono', monospace;
       --display: 'Outfit', sans-serif;
     }
-
+ 
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-
+ 
     body {
       background: var(--bg);
       color: var(--text);
@@ -52,7 +52,7 @@
       z-index: 0;
       opacity: 0.4;
     }
-
+ 
     /* ---- NAV ---- */
     nav {
       position: fixed;
@@ -66,7 +66,7 @@
       background: rgba(10,10,15,0.85);
       backdrop-filter: blur(14px);
     }
-
+ 
     .nav-logo {
       font-family: var(--mono);
       font-size: 18px;
@@ -78,7 +78,7 @@
       gap: 8px;
       text-decoration: none;
     }
-
+ 
     .nav-logo .dot {
       width: 7px; height: 7px;
       border-radius: 50%;
@@ -86,19 +86,19 @@
       box-shadow: 0 0 8px var(--green);
       animation: pulse 2s infinite;
     }
-
+ 
     @keyframes pulse {
       0%, 100% { opacity: 1; }
       50% { opacity: 0.4; }
     }
-
+ 
     .nav-links {
       display: flex;
       align-items: center;
       gap: 2rem;
       list-style: none;
     }
-
+ 
     .nav-links a {
       font-family: var(--mono);
       font-size: 11px;
@@ -108,9 +108,9 @@
       text-decoration: none;
       transition: color 0.2s;
     }
-
+ 
     .nav-links a:hover { color: var(--text); }
-
+ 
     .lang-toggle {
       font-family: var(--mono);
       font-size: 11px;
@@ -124,12 +124,12 @@
       cursor: pointer;
       transition: all 0.2s;
     }
-
+ 
     .lang-toggle:hover {
       background: rgba(123,110,246,0.2);
       color: #fff;
     }
-
+ 
     /* ---- HERO ---- */
     .hero {
       min-height: 100vh;
@@ -140,16 +140,16 @@
       position: relative;
       overflow: hidden;
     }
-
+ 
     .hero-inner {
       display: grid;
       grid-template-columns: 1fr 260px;
       gap: 3rem;
       align-items: center;
     }
-
+ 
     .hero-content { display: flex; flex-direction: column; }
-
+ 
     .hero-photo-wrap {
       display: flex;
       flex-direction: column;
@@ -158,13 +158,13 @@
       opacity: 0;
       animation: fadeUp 0.8s 0.6s forwards;
     }
-
+ 
     .hero-photo-ring {
       padding: 3px;
       border-radius: 50%;
       background: linear-gradient(135deg, var(--accent), var(--accent2), transparent);
     }
-
+ 
     .hero-photo {
       width: 220px;
       height: 220px;
@@ -176,14 +176,14 @@
       align-items: center;
       justify-content: center;
     }
-
+ 
     .hero-photo img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       object-position: center 20%;
     }
-
+ 
     .hero-photo-badge {
       display: flex;
       align-items: center;
@@ -196,7 +196,7 @@
       font-family: var(--mono);
       font-size: 11px;
     }
-
+ 
     .hero::after {
       content: '';
       position: absolute;
@@ -205,7 +205,7 @@
       background: radial-gradient(circle, rgba(123,110,246,0.08) 0%, transparent 70%);
       pointer-events: none;
     }
-
+ 
     .hero-eyebrow {
       font-family: var(--mono);
       font-size: 12px;
@@ -219,14 +219,14 @@
       opacity: 0;
       animation: fadeUp 0.6s 0.1s forwards;
     }
-
+ 
     .hero-eyebrow::before {
       content: '';
       display: inline-block;
       width: 32px; height: 1px;
       background: var(--accent2);
     }
-
+ 
     .hero h1 {
       font-size: clamp(2.5rem, 5vw, 4.5rem);
       font-weight: 600;
@@ -236,9 +236,9 @@
       opacity: 0;
       animation: fadeUp 0.7s 0.2s forwards;
     }
-
+ 
     .hero h1 .highlight { color: var(--accent2); }
-
+ 
     .hero-desc {
       font-size: 16px;
       line-height: 1.8;
@@ -249,7 +249,7 @@
       opacity: 0;
       animation: fadeUp 0.7s 0.35s forwards;
     }
-
+ 
     .hero-chips {
       display: flex;
       flex-wrap: wrap;
@@ -258,7 +258,7 @@
       opacity: 0;
       animation: fadeUp 0.7s 0.45s forwards;
     }
-
+ 
     .chip {
       font-family: var(--mono);
       font-size: 11px;
@@ -269,20 +269,20 @@
       color: var(--text2);
       background: var(--bg2);
     }
-
+ 
     .chip.active {
       color: var(--green);
       border-color: rgba(52,211,153,0.25);
       background: var(--green-dim);
     }
-
+ 
     .hero-ctas {
       display: flex;
       gap: 12px;
       opacity: 0;
       animation: fadeUp 0.7s 0.55s forwards;
     }
-
+ 
     .btn-primary {
       font-family: var(--mono);
       font-size: 12px;
@@ -301,13 +301,13 @@
       transition: all 0.2s;
       box-shadow: 0 0 24px var(--accent-glow);
     }
-
+ 
     .btn-primary:hover {
       background: var(--accent2);
       transform: translateY(-1px);
       box-shadow: 0 4px 32px var(--accent-glow);
     }
-
+ 
     .hero-scroll {
       position: absolute;
       bottom: 2.5rem; left: 2.5rem;
@@ -322,7 +322,7 @@
       opacity: 0;
       animation: fadeUp 0.7s 0.8s forwards;
     }
-
+ 
     .hero-scroll::after {
       content: '';
       display: inline-block;
@@ -330,34 +330,34 @@
       background: var(--text3);
       animation: scrollLine 2s infinite;
     }
-
+ 
     @keyframes scrollLine {
       0% { width: 0; opacity: 0; }
       50% { width: 40px; opacity: 1; }
       100% { width: 40px; opacity: 0; }
     }
-
+ 
     /* ---- SECTIONS ---- */
     section {
       padding: 5rem 2.5rem;
       border-top: 1px solid var(--border);
       position: relative;
     }
-
+ 
     .section-header {
       display: flex;
       align-items: center;
       gap: 16px;
       margin-bottom: 3rem;
     }
-
+ 
     .section-num {
       font-family: var(--mono);
       font-size: 11px;
       color: var(--accent2);
       letter-spacing: 0.1em;
     }
-
+ 
     .section-title {
       font-size: 13px;
       font-weight: 500;
@@ -365,9 +365,9 @@
       text-transform: uppercase;
       color: var(--text2);
     }
-
+ 
     .section-line { flex: 1; height: 1px; background: var(--border); }
-
+ 
     /* ---- PROJECTS ---- */
     .view-more-btn {
       font-family: var(--mono);
@@ -378,13 +378,13 @@
       transition: color 0.2s;
     }
     .view-more-btn:hover { color: #fff; }
-
+ 
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 1.5rem;
     }
-
+ 
     .project-card {
       background: var(--bg2);
       padding: 1.75rem;
@@ -397,20 +397,20 @@
       flex-direction: column;
       justify-content: space-between;
     }
-
+ 
     .project-card:hover {
       background: var(--bg3);
       border-color: var(--border2);
       transform: translateY(-2px);
     }
-
+ 
     .project-title {
       font-size: 18px;
       font-weight: 600;
       color: var(--text);
       margin-bottom: 8px;
     }
-
+ 
     .project-desc {
       font-size: 13px;
       line-height: 1.7;
@@ -418,14 +418,14 @@
       font-weight: 300;
       margin-bottom: 1.25rem;
     }
-
+ 
     .project-stack {
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
       margin-bottom: 1.5rem;
     }
-
+ 
     .stack-tag {
       font-family: var(--mono);
       font-size: 10px;
@@ -435,7 +435,7 @@
       border: 1px solid rgba(123,110,246,0.15);
       color: var(--accent2);
     }
-
+ 
     .btn-project-view {
       font-family: var(--mono);
       font-size: 12px;
@@ -447,9 +447,28 @@
       margin-top: auto;
     }
     .btn-project-view:hover { text-decoration: underline; }
-
+ 
     .hidden-project { display: none !important; }
-
+ 
+    /* ---- PROJECT PREVIEW ---- */
+    .project-preview {
+      width: 100%;
+      height: 130px;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 1.25rem;
+      border: 1px solid var(--border);
+      background: var(--bg3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+ 
+    .project-preview svg {
+      width: 100%;
+      height: 100%;
+    }
+ 
     /* ---- SKILLS ---- */
     .skills-grid {
       display: grid;
@@ -460,12 +479,12 @@
       border-radius: 12px;
       overflow: hidden;
     }
-
+ 
     .skill-group {
       background: var(--bg2);
       padding: 1.5rem;
     }
-
+ 
     .skill-group-label {
       font-family: var(--mono);
       font-size: 10px;
@@ -476,35 +495,35 @@
       padding-bottom: 0.75rem;
       border-bottom: 1px solid var(--border);
     }
-
+ 
     .skill-items {
       display: flex;
       flex-direction: column;
       gap: 10px;
     }
-
+ 
     .skill-item {
       display: flex;
       align-items: center;
       gap: 10px;
     }
-
+ 
     .skill-dot {
       width: 6px; height: 6px;
       border-radius: 50%;
       background: var(--accent);
       flex-shrink: 0;
     }
-
+ 
     .skill-dot.learning { background: #fbbf24; }
     .skill-dot.strong { background: var(--green); }
-
+ 
     .skill-name {
       font-size: 14px;
       font-weight: 500;
       color: var(--text);
     }
-
+ 
     .skill-level {
       font-family: var(--mono);
       font-size: 9px;
@@ -512,13 +531,13 @@
       letter-spacing: 0.1em;
       margin-left: auto;
     }
-
+ 
    /* ---- TIMELINE ---- */
     .timeline {
       position: relative;
       padding-left: 2rem;
     }
-
+ 
     .timeline::before {
       content: '';
       position: absolute;
@@ -526,7 +545,7 @@
       width: 1px;
       background: linear-gradient(to bottom, transparent, var(--border2), var(--border2), transparent);
     }
-
+ 
     .tl-item {
       position: relative;
       padding-bottom: 3rem;
@@ -535,14 +554,14 @@
       transform: translateX(-12px);
       transition: opacity 0.5s, transform 0.5s;
     }
-
+ 
     .tl-item.visible {
       opacity: 1;
       transform: translateX(0);
     }
-
+ 
     .tl-item:last-child { padding-bottom: 0; }
-
+ 
     .tl-dot {
       position: absolute;
       left: -2.5rem;
@@ -553,13 +572,13 @@
       border: 1px solid var(--border2);
       transition: all 0.3s;
     }
-
+ 
     .tl-item:hover .tl-dot {
       background: var(--accent);
       border-color: var(--accent);
       box-shadow: 0 0 10px var(--accent-glow);
     }
-
+ 
     .tl-year {
       font-family: var(--mono);
       font-size: 11px;
@@ -567,14 +586,14 @@
       color: var(--accent2);
       margin-bottom: 6px;
     }
-
+ 
     .tl-title {
       font-size: 16px;
       font-weight: 600;
       color: var(--text);
       margin-bottom: 4px;
     }
-
+ 
     .tl-sub {
       font-family: var(--mono);
       font-size: 11px;
@@ -582,7 +601,7 @@
       margin-bottom: 10px;
       letter-spacing: 0.06em;
     }
-
+ 
     .tl-desc {
       font-size: 14px;
       line-height: 1.7;
@@ -590,14 +609,14 @@
       font-weight: 300;
       max-width: 560px;
     }
-
+ 
     .tl-tags {
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
       margin-top: 10px;
     }
-
+ 
     .tl-tag {
       font-family: var(--mono);
       font-size: 10px;
@@ -608,14 +627,14 @@
       color: var(--text3);
       letter-spacing: 0.06em;
     }
-
+ 
     /* ---- CONTACT ---- */
     .contact-inner {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 4rem;
     }
-
+ 
     .contact-heading {
       font-size: 2.5rem;
       font-weight: 600;
@@ -623,7 +642,7 @@
       letter-spacing: -0.02em;
       margin-bottom: 1rem;
     }
-
+ 
     .contact-sub {
       font-size: 15px;
       line-height: 1.8;
@@ -631,13 +650,13 @@
       font-weight: 300;
       margin-bottom: 2rem;
     }
-
+ 
     .contact-links {
       display: flex;
       flex-direction: column;
       gap: 10px;
     }
-
+ 
     .contact-link {
       display: flex;
       align-items: center;
@@ -652,13 +671,13 @@
       font-weight: 500;
       transition: all 0.2s;
     }
-
+ 
     .contact-link:hover {
       background: var(--bg3);
       border-color: var(--border2);
       transform: translateX(4px);
     }
-
+ 
     .contact-link .link-icon {
       width: 36px; height: 36px;
       border-radius: 8px;
@@ -671,7 +690,7 @@
       color: var(--accent2);
       flex-shrink: 0;
     }
-
+ 
     .contact-link .link-info { flex: 1; }
     .contact-link .link-name { font-size: 14px; font-weight: 500; }
     .contact-link .link-val {
@@ -680,15 +699,15 @@
       color: var(--text3);
       letter-spacing: 0.06em;
     }
-
+ 
     .contact-link .arrow {
       color: var(--text3);
       font-size: 14px;
       transition: color 0.2s;
     }
-
+ 
     .contact-link:hover .arrow { color: var(--text); }
-
+ 
     footer {
       border-top: 1px solid var(--border);
       padding: 1.5rem 2.5rem;
@@ -696,12 +715,12 @@
       justify-content: space-between;
       align-items: center;
     }
-
+ 
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(16px); }
       to { opacity: 1; transform: translateY(0); }
     }
-
+ 
     /* ---- HAMBURGER MENU ---- */
     .hamburger {
       display: none;
@@ -712,7 +731,7 @@
       background: none;
       border: none;
     }
-
+ 
     .hamburger span {
       display: block;
       width: 22px;
@@ -721,22 +740,22 @@
       border-radius: 2px;
       transition: all 0.3s;
     }
-
+ 
     .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
     .hamburger.active span:nth-child(2) { opacity: 0; }
     .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
-
+ 
     /* ---- MOBILE RESPONSIVE ---- */
     @media (max-width: 768px) {
       /* Nav */
       nav {
         padding: 1rem 1.25rem;
       }
-
+ 
       .hamburger {
         display: flex;
       }
-
+ 
       .nav-links {
         display: none;
         position: fixed;
@@ -750,94 +769,94 @@
         border-bottom: 1px solid var(--border);
         z-index: 99;
       }
-
+ 
       .nav-links.open {
         display: flex;
       }
-
+ 
       .nav-links li {
         width: 100%;
       }
-
+ 
       .nav-links a {
         display: block;
         padding: 0.9rem 1.5rem;
         font-size: 13px;
         border-bottom: 1px solid var(--border);
       }
-
+ 
       .lang-toggle {
         font-size: 11px;
         padding: 5px 10px;
       }
-
+ 
       /* Hero */
       .hero {
         padding: 6rem 1.25rem 4rem;
       }
-
+ 
       .hero-inner {
         grid-template-columns: 1fr;
         gap: 2.5rem;
       }
-
+ 
       .hero-photo-wrap {
         order: -1;
         margin-top: 0;
       }
-
+ 
       .hero-photo {
         width: 150px;
         height: 150px;
       }
-
+ 
       .hero h1 {
         font-size: clamp(1.8rem, 7vw, 2.8rem);
       }
-
+ 
       .hero-desc {
         font-size: 14px;
       }
-
+ 
       .hero-ctas {
         flex-direction: column;
         gap: 10px;
       }
-
+ 
       .btn-primary {
         width: 100%;
         justify-content: center;
       }
-
+ 
       .hero-scroll {
         display: none;
       }
-
+ 
       /* Sections */
       section {
         padding: 3rem 1.25rem;
       }
-
+ 
       /* Projects grid */
       .projects-grid {
         grid-template-columns: 1fr;
       }
-
+ 
       /* Skills grid */
       .skills-grid {
         grid-template-columns: 1fr;
       }
-
+ 
       /* Contact */
       .contact-inner {
         grid-template-columns: 1fr;
         gap: 2rem;
       }
-
+ 
       .contact-heading {
         font-size: 1.75rem;
       }
-
+ 
       /* Footer */
       footer {
         padding: 1.5rem 1.25rem;
@@ -846,32 +865,32 @@
         text-align: center;
         font-size: 12px;
       }
-
+ 
       /* Timeline */
       .tl-item {
         padding-left: 1.5rem;
       }
-
+ 
       .timeline {
         padding-left: 1.5rem;
       }
-
+ 
       .tl-dot {
         left: -2rem;
       }
-
+ 
       /* Section header */
       .section-header {
         gap: 10px;
         flex-wrap: wrap;
       }
     }
-
+ 
     @media (max-width: 400px) {
       .hero h1 {
         font-size: 1.6rem;
       }
-
+ 
       .hero-photo {
         width: 130px;
         height: 130px;
@@ -880,12 +899,12 @@
  </style>
 </head>
 <body>
-
+ 
   <nav>
     <a href="#home" class="nav-logo">
       <div class="dot"></div>ϟ
     </a>
-
+ 
     <ul class="nav-links" id="navLinks">
       <li><a href="#home" data-tr="#anasayfa" data-en="#home" onclick="closeMenu()">#anasayfa</a></li>
       <li><a href="#projects" data-tr="#projeler" data-en="#projects" onclick="closeMenu()">#projeler</a></li>
@@ -893,7 +912,7 @@
       <li><a href="#timeline" data-tr="#yolculuk" data-en="#journey" onclick="closeMenu()">#yolculuk</a></li>
       <li><a href="#contact" data-tr="#iletisim" data-en="#contact" onclick="closeMenu()">#iletisim</a></li>
     </ul>
-
+ 
     <div style="display:flex;align-items:center;gap:12px;">
       <button class="lang-toggle" id="langBtn">EN</button>
       <button class="hamburger" id="hamburger" aria-label="Menü">
@@ -901,72 +920,71 @@
       </button>
     </div>
   </nav>
-
+ 
   <header id="home" class="hero">
     <div class="hero-inner">
       <div class="hero-content">
-
+ 
         <div class="hero-eyebrow"
-             data-tr="Full-Stack Web Geliştirici"
-             data-en="Full-Stack Web Developer">
-          Full-Stack Web Geliştirici
+             data-tr="Aspiring Developer · Bilgisayar Mühendisliği Öğrencisi"
+             data-en="Aspiring Developer · Computer Engineering Student">
+          Aspiring Developer · Bilgisayar Mühendisliği Öğrencisi
         </div>
-
-        <h1 data-tr="Merhaba! Ben <span class='highlight'>ARHAT</span>. Full-Stack <span class='highlight'>Web Geliştiricisiyim</span>"
-            data-en="Hello! I'm <span class='highlight'>ARHAT</span>. I'm a Full-Stack <span class='highlight'>Web Developer</span>">
-          Merhaba! Ben <span class="highlight">ARHAT</span>. Full-Stack <span class="highlight">Web Geliştiricisiyim</span>
+ 
+        <h1 data-tr="Ben <span class='highlight'>ARHAT BASUT.</span> —<br>Kendi çapında<br><span class='highlight'>mühendis.</span>"
+            data-en="I'm <span class='highlight'>ARHAT BASUT.</span> —<br>in his own way,<br><span class='highlight'>an engineer.</span>">
+          Ben <span class="highlight">ARHAT</span> <span class="highlight">BASUT</span>—<br>Kendi çapında<br><span class="highlight">mühendis.</span>
         </h1>
-
+ 
         <p class="hero-desc" 
-           data-tr="Merhaba, ben Arhat. Harran Üniversitesi Bilgisayar Mühendisliği 1. sınıf öğrencisiyim. Yazılım geliştirme ve siber güvenliğe ilgi duyan biriyim. Şu anda Java programlama dili ve siber güvenlik alanlarında eğitimler almaktayım. Ayrıca IEEE ve Genç STEM gibi öğrenci kulüplerinde aktif olarak görev yaparak hem teknik hem de sosyal anlamda kendimi geliştirmeye devam ediyorum."
-           data-en="Hi, I'm Arhat. I'm a first-year Computer Engineering student at Harran University, passionate about software development and cybersecurity. Currently, I'm training in Java programming and cyber security fields. I also actively take roles in student clubs like IEEE and Genç STEM to keep improving myself both technically and socially.">
-          Merhaba, ben Arhat. Harran Üniversitesi Bilgisayar Mühendisliği 1. sınıf öğrencisiyim. Yazılım geliştirme ve siber güvenliğe ilgi duyan biriyim. Şu anda Java programlama dili ve siber güvenlik alanlarında eğitimler almaktayım. Ayrıca IEEE ve Genç STEM gibi öğrenci kulüplerinde aktif olarak görev yaparak hem teknik hem de sosyal anlamda kendimi geliştirmeye devam ediyorum.
+           data-tr="Merhaba, ben Arhat. Bilgisayar Mühendisliği 1. sınıf öğrencisiyim. Yazılım geliştirme ve siber güvenliğe ilgi duyan biriyim. Şu anda Java programlama dili ve siber güvenlik alanlarında eğitimler almaktayım. Ayrıca IEEE ve Genç STEM gibi öğrenci kulüplerinde aktif olarak görev yaparak hem teknik hem de sosyal anlamda kendimi geliştirmeye devam ediyorum."
+           data-en="Hi, I'm Arhat. I'm a first-year Computer Engineering student at passionate about software development and cybersecurity. Currently, I'm training in Java programming and cyber security fields. I also actively take roles in student clubs like IEEE and Genç STEM to keep improving myself both technically and socially.">
+          Merhaba, ben Arhat. Bilgisayar Mühendisliği 1. sınıf öğrencisiyim. Yazılım geliştirme ve siber güvenliğe ilgi duyan biriyim. Şu anda Java programlama dili ve siber güvenlik alanlarında eğitimler almaktayım. Ayrıca IEEE ve Genç STEM gibi öğrenci kulüplerinde aktif olarak görev yaparak hem teknik hem de sosyal anlamda kendimi geliştirmeye devam ediyorum.
         </p>
-
+ 
         <div class="hero-chips">
           <span class="chip active" data-tr="● Aktif Öğreniyor" data-en="● Active Learner">● Aktif Öğreniyor</span>
           <span class="chip" data-tr="Açık Kaynağa Katkı" data-en="Open Source Contribution">Açık Kaynağa Katkı</span>
           <span class="chip" data-tr="Siber Güvenlik" data-en="Cybersecurity">Siber Güvenlik</span>
-          <span class="chip" data-tr="Genç STEM Kulübü" data-en="Young STEM Club">Genç STEM Kulübü</span>
         </div>
-
+ 
         <div class="hero-ctas">
           <a href="#timeline" class="btn-primary"
              data-tr="<i class='ti ti-arrow-down'></i> <span>Yolculuğumu Gör</span>" data-en="<i class='ti ti-arrow-down'></i> <span>See My Journey</span>">
             <i class="ti ti-arrow-down"></i>
             <span>Yolculuğumu Gör</span>
           </a>
-
+ 
           <a href="#contact" class="btn-primary"
              data-tr="<i class='ti ti-arrow-right'></i> <span>İletişime Geç</span>" data-en="<i class='ti ti-arrow-right'></i> <span>Contact Me</span>">
             <i class="ti ti-arrow-right"></i>
             <span>İletişime Geç</span>
           </a>
         </div>
-
+ 
       </div>
-
+ 
       <div class="hero-photo-wrap">
         <div class="hero-photo-ring">
           <div class="hero-photo">
             <img src="photo.jpg" alt="ARHAT profile photo">
           </div>
         </div>
-
+ 
         <div class="hero-photo-badge">
           <i class="ti ti-map-pin" style="color:var(--green)"></i> Türkiye
         </div>
       </div>
-
+ 
       <div class="hero-scroll"
            data-tr="Aşağı Kaydır"
            data-en="Scroll Down">
         Aşağı Kaydır
       </div>
-
+ 
     </div>
   </header>
-
+ 
   <section id="projects">
     <div class="section-header">
       <span class="section-num">01//</span>
@@ -974,9 +992,26 @@
       <div class="section-line"></div>
       <a id="view-more-btn" class="view-more-btn" data-tr="Daha fazla →" data-en="View more →">Daha fazla →</a>
     </div>
-
+ 
     <div class="projects-grid">
       <div class="project-card">
+        <div class="project-preview">
+        <svg viewBox="0 0 400 130" xmlns="http://www.w3.org/2000/svg">
+          <rect width="400" height="130" fill="#0d0d14"/>
+          <rect x="12" y="10" width="376" height="22" rx="4" fill="#111118" stroke="rgba(123,110,246,0.2)" stroke-width="1"/>
+          <circle cx="26" cy="21" r="5" fill="#ff5f57"/><circle cx="42" cy="21" r="5" fill="#febc2e"/><circle cx="58" cy="21" r="5" fill="#28c840"/>
+          <text x="80" y="25" font-family="monospace" font-size="9" fill="#5a5870">https://hackdash.arhat.dev</text>
+          <rect x="12" y="40" width="376" height="78" rx="4" fill="#0a0a0f"/>
+          <text x="24" y="58" font-family="monospace" font-size="8" fill="#34d399">$ whoami</text>
+          <text x="24" y="72" font-family="monospace" font-size="8" fill="#7b6ef6">IP:&gt;</text>
+          <text x="50" y="72" font-family="monospace" font-size="8" fill="#a78bfa">185.220.101.xx</text>
+          <text x="24" y="86" font-family="monospace" font-size="8" fill="#7b6ef6">ISP:&gt;</text>
+          <text x="50" y="86" font-family="monospace" font-size="8" fill="#9997aa">Turk Telekom</text>
+          <text x="24" y="100" font-family="monospace" font-size="8" fill="#7b6ef6">LOC:&gt;</text>
+          <text x="50" y="100" font-family="monospace" font-size="8" fill="#9997aa">Türkiye / Diyarbakır</text>
+          <text x="24" y="114" font-family="monospace" font-size="8" fill="#34d399">█</text>
+        </svg>
+      </div>
         <div>
           <h3 class="project-title" data-tr="IP & Tarayıcı Bilgi Uygulaması" data-en="IP & Browser Info App">IP & Tarayıcı Bilgi Uygulaması</h3>
           <p class="project-desc" 
@@ -992,8 +1027,21 @@
         </div>
         <a href="https://arhatb.github.io/HackDash/" target="_blank" class="btn-project-view" data-tr="Projeyi İncele <i class='ti ti-arrow-up-right'></i>" data-en="View Project <i class='ti ti-arrow-up-right'></i>">Projeyi İncele <i class="ti ti-arrow-up-right"></i></a>
       </div>
-
+ 
       <div class="project-card">
+        <div class="project-preview">
+        <svg viewBox="0 0 400 130" xmlns="http://www.w3.org/2000/svg">
+          <rect width="400" height="130" fill="#0d0d14"/>
+          <rect x="30" y="20" width="340" height="90" rx="10" fill="#111118" stroke="rgba(123,110,246,0.2)" stroke-width="1"/>
+          <text x="200" y="44" text-anchor="middle" font-family="monospace" font-size="11" fill="#a78bfa" font-weight="bold">🔗 LinkShortener</text>
+          <rect x="50" y="54" width="220" height="20" rx="4" fill="#0a0a0f" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+          <text x="60" y="68" font-family="monospace" font-size="8" fill="#5a5870">https://çok-uzun-bir-url.com/sayfam...</text>
+          <rect x="278" y="54" width="72" height="20" rx="4" fill="#7b6ef6"/>
+          <text x="314" y="68" text-anchor="middle" font-family="monospace" font-size="8" fill="#fff">Kısalt</text>
+          <rect x="50" y="84" width="180" height="16" rx="4" fill="#16161f" stroke="rgba(52,211,153,0.25)" stroke-width="1"/>
+          <text x="60" y="95" font-family="monospace" font-size="8" fill="#34d399">arhat.link/x7kP2</text>
+        </svg>
+      </div>
         <div>
           <h3 class="project-title" data-tr="URL Kısaltıcı" data-en="URL Shortener">URL Kısaltıcı</h3>
           <p class="project-desc" 
@@ -1009,8 +1057,19 @@
         </div>
         <a href="https://arhatb.github.io/LinkShortener/" target="_blank" class="btn-project-view" data-tr="Projeyi İncele <i class='ti ti-arrow-up-right'></i>" data-en="View Project <i class='ti ti-arrow-up-right'></i>">Projeyi İncele <i class="ti ti-arrow-up-right"></i></a>
       </div>
-
+ 
       <div class="project-card">
+        <div class="project-preview">
+        <svg viewBox="0 0 400 130" xmlns="http://www.w3.org/2000/svg">
+          <defs><radialGradient id="hg" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#7b6ef620"/><stop offset="100%" stop-color="transparent"/></radialGradient></defs>
+          <rect width="400" height="130" fill="#0d0d14"/>
+          <ellipse cx="200" cy="65" rx="130" ry="55" fill="url(#hg)"/>
+          <text x="200" y="48" text-anchor="middle" font-size="22">💜</text>
+          <text x="200" y="72" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#f0eff5" font-weight="600">Özel Biri İçin</text>
+          <text x="200" y="90" text-anchor="middle" font-family="monospace" font-size="9" fill="#9997aa">Sevdiklerine özel bir sürpriz ✨</text>
+          <text x="200" y="108" text-anchor="middle" font-family="monospace" font-size="8" fill="#5a5870">arhatb.github.io/love</text>
+        </svg>
+      </div>
         <div>
           <h3 class="project-title" data-tr="Özel Biri İçin" data-en="For Someone Special">Özel Biri İçin</h3>
           <p class="project-desc" 
@@ -1026,8 +1085,19 @@
         </div>
         <a href="https://arhatb.github.io/love/" target="_blank" class="btn-project-view" data-tr="Projeyi İncele <i class='ti ti-arrow-up-right'></i>" data-en="View Project <i class='ti ti-arrow-up-right'></i>">Projeyi İncele <i class="ti ti-arrow-up-right"></i></a>
       </div>
-
+ 
       <div class="project-card hidden-project">
+        <div class="project-preview">
+        <svg viewBox="0 0 400 130" xmlns="http://www.w3.org/2000/svg">
+          <rect width="400" height="130" fill="#0d0d14"/>
+          <text x="20" y="30" font-family="monospace" font-size="10" fill="#fbbf24" font-weight="bold">₿ Kripto Takip</text>
+          <text x="20" y="50" font-family="monospace" font-size="8" fill="#34d399">BTC  $67,420  ▲2.3%</text>
+          <text x="20" y="65" font-family="monospace" font-size="8" fill="#9997aa">ETH  $3,180   ▼0.8%</text>
+          <text x="20" y="80" font-family="monospace" font-size="8" fill="#34d399">SOL  $145     ▲5.1%</text>
+          <polyline points="220,100 250,70 280,85 310,45 340,60 370,30" fill="none" stroke="#7b6ef6" stroke-width="2"/>
+          <circle cx="370" cy="30" r="3" fill="#a78bfa"/>
+        </svg>
+      </div>
         <div>
           <h3 class="project-title" data-tr="Kripto Analizi" data-en="Crypto Analysis">Kripto Analizi</h3>
           <p class="project-desc" data-tr="Basit bir kripto para takip uygulaması." data-en="A lightweight and clean cryptocurrency tracking application.">
@@ -1041,8 +1111,20 @@
         </div>
         <a href="https://arhatb.github.io/kripto/" target="_blank" class="btn-project-view" data-tr="Projeyi İncele <i class='ti ti-arrow-up-right'></i>" data-en="View Project <i class='ti ti-arrow-up-right'></i>">Projeyi İncele <i class="ti ti-arrow-up-right"></i></a>
       </div>
-
+ 
       <div class="project-card hidden-project">
+        <div class="project-preview">
+        <svg viewBox="0 0 400 130" xmlns="http://www.w3.org/2000/svg">
+          <rect width="400" height="130" fill="#060810"/>
+          <text x="20" y="25" font-family="monospace" font-size="9" fill="#34d399">root@kali:~# nmap -sV target</text>
+          <text x="20" y="42" font-family="monospace" font-size="8" fill="#5a5870">Starting Nmap scan...</text>
+          <text x="20" y="57" font-family="monospace" font-size="8" fill="#9997aa">PORT     STATE  SERVICE</text>
+          <text x="20" y="71" font-family="monospace" font-size="8" fill="#34d399">22/tcp   open   ssh</text>
+          <text x="20" y="85" font-family="monospace" font-size="8" fill="#34d399">80/tcp   open   http</text>
+          <text x="20" y="99" font-family="monospace" font-size="8" fill="#fbbf24">443/tcp  open   https</text>
+          <text x="20" y="116" font-family="monospace" font-size="8" fill="#34d399">root@kali:~# █</text>
+        </svg>
+      </div>
         <div>
           <h3 class="project-title">TryHackMe</h3>
           <p class="project-desc" data-tr="Kullanıcıların komut yazabileceği minimal bir terminal arayüzü." data-en="A minimal interactive terminal web interface where users can type commands.">
@@ -1056,8 +1138,19 @@
         </div>
         <a href="https://arhatb.github.io/TryHackMe/" target="_blank" class="btn-project-view" data-tr="Projeyi İncele <i class='ti ti-arrow-up-right'></i>" data-en="View Project <i class='ti ti-arrow-up-right'></i>">Projeyi İncele <i class="ti ti-arrow-up-right"></i></a>
       </div>
-
+ 
       <div class="project-card hidden-project">
+        <div class="project-preview">
+        <svg viewBox="0 0 400 130" xmlns="http://www.w3.org/2000/svg">
+          <rect width="400" height="130" fill="#0d0d14"/>
+          <rect x="120" y="15" width="160" height="100" rx="12" fill="#111118" stroke="rgba(123,110,246,0.2)" stroke-width="1"/>
+          <text x="200" y="42" text-anchor="middle" font-family="monospace" font-size="9" fill="#5a5870">ÇALIŞMA ZAMANLAYICI</text>
+          <text x="200" y="72" text-anchor="middle" font-family="monospace" font-size="26" fill="#f0eff5" font-weight="bold">25:00</text>
+          <text x="200" y="90" text-anchor="middle" font-family="monospace" font-size="8" fill="#a78bfa">Pomodoro Modu</text>
+          <rect x="155" y="98" width="40" height="12" rx="4" fill="#7b6ef6"/>
+          <text x="175" y="108" text-anchor="middle" font-family="monospace" font-size="7" fill="#fff">Başlat</text>
+        </svg>
+      </div>
         <div>
           <h3 class="project-title">StudyPal</h3>
           <p class="project-desc" 
@@ -1073,8 +1166,21 @@
         </div>
         <a href="https://arhatb.github.io/StudyPal/" target="_blank" class="btn-project-view" data-tr="Projeyi İncele <i class='ti ti-arrow-up-right'></i>" data-en="View Project <i class='ti ti-arrow-up-right'></i>">Projeyi İncele <i class="ti ti-arrow-up-right"></i></a>
       </div>
-
+ 
       <div class="project-card hidden-project">
+        <div class="project-preview">
+        <svg viewBox="0 0 400 130" xmlns="http://www.w3.org/2000/svg">
+          <rect width="400" height="130" fill="#0d0d14"/>
+          <rect x="110" y="10" width="180" height="110" rx="10" fill="#111118" stroke="rgba(123,110,246,0.2)" stroke-width="1"/>
+          <text x="200" y="34" text-anchor="middle" font-family="monospace" font-size="10" fill="#a78bfa" font-weight="bold">🔐 Giriş Yap</text>
+          <rect x="128" y="42" width="144" height="18" rx="4" fill="#0a0a0f" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+          <text x="136" y="55" font-family="monospace" font-size="8" fill="#5a5870">kullanici@email.com</text>
+          <rect x="128" y="66" width="144" height="18" rx="4" fill="#0a0a0f" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+          <text x="136" y="79" font-family="monospace" font-size="8" fill="#5a5870">••••••••</text>
+          <rect x="128" y="92" width="144" height="18" rx="4" fill="#7b6ef6"/>
+          <text x="200" y="105" text-anchor="middle" font-family="monospace" font-size="8" fill="#fff">Giriş Yap</text>
+        </svg>
+      </div>
         <div>
           <h3 class="project-title">JSLogin</h3>
           <p class="project-desc" 
@@ -1092,7 +1198,7 @@
       </div>
     </div>
   </section>
-
+ 
   <section id="skills">
     <div class="section-header">
       <span class="section-num">02//</span>
@@ -1193,7 +1299,7 @@
       </span>
     </div>
   </section>
-
+ 
   <section id="timeline">
     <div class="section-header">
       <span class="section-num">03//</span>
@@ -1201,7 +1307,7 @@
       <div class="section-line"></div>
     </div>
     <div class="timeline">
-
+ 
       <div class="tl-item">
         <div class="tl-dot"></div>
         <div class="tl-year">2025</div>
@@ -1216,7 +1322,7 @@
           <span class="tl-tag" data-tr="Matematik" data-en="Mathematics">Matematik</span>
         </div>
       </div>
-
+ 
       <div class="tl-item">
         <div class="tl-dot"></div>
         <div class="tl-year">2026 — Mayıs</div>
@@ -1231,7 +1337,7 @@
           <span class="tl-tag">STEM</span>
         </div>
       </div>
-
+ 
       <div class="tl-item">
         <div class="tl-dot"></div>
         <div class="tl-year">2026 — Devam Ediyor</div>
@@ -1246,10 +1352,10 @@
           <span class="tl-tag" data-tr="Ar-Ge" data-en="R&D">Ar-Ge</span>
         </div>
       </div>
-
+ 
     </div>
   </section>
-
+ 
   <section id="contact">
     <div class="section-header">
       <span class="section-num">04//</span>
@@ -1291,26 +1397,26 @@
       </div>
     </div>
   </section>
-
+ 
   <footer>
     <span class="footer-copy">ARHAT © 2026 — <span data-tr="Sevgi ve kodla yapıldı." data-en="Built with love and code.">Sevgi ve kodla yapıldı.</span></span>
   </footer>
-
+ 
   <script>
     // --- HAMBURGER MENU ---
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('navLinks');
-
+ 
     hamburger.addEventListener('click', () => {
       hamburger.classList.toggle('active');
       navLinks.classList.toggle('open');
     });
-
+ 
     function closeMenu() {
       hamburger.classList.remove('active');
       navLinks.classList.remove('open');
     }
-
+ 
     // --- PHOTO FALLBACK (if photo.jpg not found) ---
     const profileImg = document.querySelector('.hero-photo img');
     if (profileImg) {
@@ -1322,11 +1428,11 @@
         this.parentElement.appendChild(placeholder);
       });
     }
-
+ 
     // --- LANGUAGE TOGGLE ---
     let lang = 'tr';
     const btn = document.getElementById('langBtn');
-
+ 
     function applyLang() {
       document.querySelectorAll('[data-tr]').forEach(el => {
         const val = el.getAttribute('data-' + lang);
@@ -1336,12 +1442,12 @@
       btn.textContent = lang === 'tr' ? 'EN' : 'TR';
       document.documentElement.lang = lang;
     }
-
+ 
     btn.addEventListener('click', () => {
       lang = lang === 'tr' ? 'en' : 'tr';
       applyLang();
     });
-
+ 
     // --- SCROLL REVEAL FOR TIMELINE ---
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => {
@@ -1350,12 +1456,12 @@
         }
       });
     }, { threshold: 0.15 });
-
+ 
     document.querySelectorAll('.tl-item').forEach((el, i) => {
       el.style.transitionDelay = (i * 0.1) + 's';
       observer.observe(el);
     });
-
+ 
     // --- VIEW MORE PROJECTS TOGGLE ---
     const viewMoreBtn = document.getElementById('view-more-btn');
     viewMoreBtn.addEventListener('click', () => {
