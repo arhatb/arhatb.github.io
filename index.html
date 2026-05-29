@@ -701,6 +701,182 @@
       from { opacity: 0; transform: translateY(16px); }
       to { opacity: 1; transform: translateY(0); }
     }
+
+    /* ---- HAMBURGER MENU ---- */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+    /* ---- MOBILE RESPONSIVE ---- */
+    @media (max-width: 768px) {
+      /* Nav */
+      nav {
+        padding: 1rem 1.25rem;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .nav-links {
+        display: none;
+        position: fixed;
+        top: 57px;
+        left: 0; right: 0;
+        background: rgba(10,10,15,0.98);
+        backdrop-filter: blur(14px);
+        flex-direction: column;
+        gap: 0;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid var(--border);
+        z-index: 99;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links li {
+        width: 100%;
+      }
+
+      .nav-links a {
+        display: block;
+        padding: 0.9rem 1.5rem;
+        font-size: 13px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .lang-toggle {
+        font-size: 11px;
+        padding: 5px 10px;
+      }
+
+      /* Hero */
+      .hero {
+        padding: 6rem 1.25rem 4rem;
+      }
+
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
+      .hero-photo-wrap {
+        order: -1;
+        margin-top: 0;
+      }
+
+      .hero-photo {
+        width: 150px;
+        height: 150px;
+      }
+
+      .hero h1 {
+        font-size: clamp(1.8rem, 7vw, 2.8rem);
+      }
+
+      .hero-desc {
+        font-size: 14px;
+      }
+
+      .hero-ctas {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .btn-primary {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .hero-scroll {
+        display: none;
+      }
+
+      /* Sections */
+      section {
+        padding: 3rem 1.25rem;
+      }
+
+      /* Projects grid */
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      /* Skills grid */
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      /* Contact */
+      .contact-inner {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .contact-heading {
+        font-size: 1.75rem;
+      }
+
+      /* Footer */
+      footer {
+        padding: 1.5rem 1.25rem;
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+        font-size: 12px;
+      }
+
+      /* Timeline */
+      .tl-item {
+        padding-left: 1.5rem;
+      }
+
+      .timeline {
+        padding-left: 1.5rem;
+      }
+
+      .tl-dot {
+        left: -2rem;
+      }
+
+      /* Section header */
+      .section-header {
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .hero h1 {
+        font-size: 1.6rem;
+      }
+
+      .hero-photo {
+        width: 130px;
+        height: 130px;
+      }
+    }
  </style>
 </head>
 <body>
@@ -710,15 +886,20 @@
       <div class="dot"></div>ϟ
     </a>
 
-    <ul class="nav-links">
-      <li><a href="#home" data-tr="#anasayfa" data-en="#home">#anasayfa</a></li>
-      <li><a href="#projects" data-tr="#projeler" data-en="#projects">#projeler</a></li>
-      <li><a href="#skills" data-tr="#beceriler" data-en="#skills">#beceriler</a></li>
-      <li><a href="#timeline" data-tr="#yolculuk" data-en="#journey">#yolculuk</a></li>
-      <li><a href="#contact" data-tr="#iletisim" data-en="#contact">#iletisim</a></li>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home" data-tr="#anasayfa" data-en="#home" onclick="closeMenu()">#anasayfa</a></li>
+      <li><a href="#projects" data-tr="#projeler" data-en="#projects" onclick="closeMenu()">#projeler</a></li>
+      <li><a href="#skills" data-tr="#beceriler" data-en="#skills" onclick="closeMenu()">#beceriler</a></li>
+      <li><a href="#timeline" data-tr="#yolculuk" data-en="#journey" onclick="closeMenu()">#yolculuk</a></li>
+      <li><a href="#contact" data-tr="#iletisim" data-en="#contact" onclick="closeMenu()">#iletisim</a></li>
     </ul>
 
-    <button class="lang-toggle" id="langBtn">EN</button>
+    <div style="display:flex;align-items:center;gap:12px;">
+      <button class="lang-toggle" id="langBtn">EN</button>
+      <button class="hamburger" id="hamburger" aria-label="Menü">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </nav>
 
   <header id="home" class="hero">
@@ -1116,6 +1297,32 @@
   </footer>
 
   <script>
+    // --- HAMBURGER MENU ---
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navLinks.classList.toggle('open');
+    });
+
+    function closeMenu() {
+      hamburger.classList.remove('active');
+      navLinks.classList.remove('open');
+    }
+
+    // --- PHOTO FALLBACK (if photo.jpg not found) ---
+    const profileImg = document.querySelector('.hero-photo img');
+    if (profileImg) {
+      profileImg.addEventListener('error', function() {
+        this.style.display = 'none';
+        const placeholder = document.createElement('div');
+        placeholder.style.cssText = 'width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:3rem;color:var(--accent2);font-family:var(--mono);font-weight:700;';
+        placeholder.textContent = 'A';
+        this.parentElement.appendChild(placeholder);
+      });
+    }
+
     // --- LANGUAGE TOGGLE ---
     let lang = 'tr';
     const btn = document.getElementById('langBtn');
